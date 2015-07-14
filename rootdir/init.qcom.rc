@@ -101,9 +101,6 @@ on early-boot
     setrlimit 8 67108864 67108864
 
     write /sys/kernel/boot_adsp/boot 1
-    
-    # start hvdcp to enable quck charge 2.0 in power off charge
-    start hvdcp
 
     # Run pre_hw_config.sh before entering charge only mode.
     exec /system/bin/sh /system/etc/pre_hw_config.sh
@@ -265,10 +262,6 @@ on boot
     chmod 0644 /sys/class/power_supply/battery/input_current_max
     chmod 0644 /sys/class/power_supply/battery/input_current_trim
     chmod 0644 /sys/class/power_supply/battery/voltage_min
-
-    # NFC
-    # Symlink for compability
-    symlink /dev/pn547 /dev/pn544
 
     chown system system /sys/devices/virtual/graphics/fb0/rgb
     chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
@@ -614,11 +607,6 @@ service setup_fs /system/bin/setup_fs /dev/block/platform/msm_sdcc.1/by-name/use
 service charger /sbin/healthd -c
     class charger
     seclabel u:r:healthd:s0
-    
-service hvdcp /system/bin/hvdcp
-    class core
-    user root
-    disabled
 
 service tfa9890_amp /system/bin/tfa9890_amp
     class main
