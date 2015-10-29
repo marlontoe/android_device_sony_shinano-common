@@ -94,14 +94,10 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2671771648
 
-# TWRP
+# Recovery
 RECOVERY_VARIANT := twrp
-TARGET_RECOVERY_FSTAB := device/sony/shinano-common/rootdir/fstab.qcom
-TARGET_NO_SEPARATE_RECOVERY := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
-DEVICE_RESOLUTION :=  720x1280
+
+# TWRP flags
 TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -119,7 +115,9 @@ TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,barrier=1,noauto_da_alloc,discard"
 TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
 TW_INCLUDE_FUSE_EXFAT := true
-TW_BRIGHTNESS_PATH := /sys/class/leds/wled:backlight/brightness
-TW_MAX_BRIGHTNESS := 4095
+# TW_BOARD_CUSTOM_GRAPHICS := ../../../device/sony/shinano-common/recovery/twrpgraphics.c
+# TW_BRIGHTNESS_PATH := /sys/class/leds/wled:backlight/brightness
+# TW_MAX_BRIGHTNESS := 4095
 TW_NO_USB_STORAGE := true
 TW_NO_SCREEN_BLANK := true
+
