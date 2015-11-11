@@ -56,7 +56,8 @@ BOARD_LIB_DUMPSTATE := libdumpstate.sony
 TARGET_PROVIDES_GPS_LOC_API := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_shinano
+TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_LIBINIT_DEFINES_FILE := device/sony/shinano-common/init/init_shinano.cpp
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \

@@ -45,7 +45,7 @@ static void import_kernel_nv(char *name)
     }
 }
 
-void vendor_load_properties()
+void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type)
 {
     import_kernel_cmdline(0, import_kernel_nv);
 }
