@@ -60,8 +60,8 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_LIBINIT_DEFINES_FILE := device/sony/shinano-common/init/init_shinano.cpp
 
 # SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/sony/shinano-common/sepolicy
+# BOARD_SEPOLICY_DIRS += \
+#    device/sony/shinano-common/sepolicy
 
 # BOARD_SEPOLICY_UNION += \
 #    mlog_qmi.te \
