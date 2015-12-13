@@ -24,7 +24,7 @@
 
 #include <sys/system_properties.h>
 
-static void import_kernel_nv(char *name, int for_emulator)
+static void import_kernel_nv(char *name, __attribute__((unused)) bool foo)
 {
     char *value = strchr(name, '=');
     int name_len = strlen(name);
@@ -45,7 +45,7 @@ static void import_kernel_nv(char *name, int for_emulator)
     }
 }
 
-void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type)
+void vendor_load_properties()
 {
     import_kernel_cmdline(0, import_kernel_nv);
 }
