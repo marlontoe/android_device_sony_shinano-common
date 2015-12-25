@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-SONY_ROOT = device/sony/shinano-common/rootdir
+SONY_ROOT = device/sony/shinano/rootdir
 
 SOMC_PLATFORM := shinano
 
 DEVICE_PACKAGE_OVERLAYS += \
-    device/sony/shinano-common/overlay
+    device/sony/shinano/overlay
 
 # Copying files
 PRODUCT_COPY_FILES += \
