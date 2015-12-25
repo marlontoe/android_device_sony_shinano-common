@@ -19,6 +19,10 @@ SOMC_PLATFORM := shinano
 DEVICE_PACKAGE_OVERLAYS += \
     device/sony/shinano-common/overlay
 
+# Copying files
+PRODUCT_COPY_FILES += \
+    $(SONY_ROOT)/twrp.fstab:recovery/root/etc/twrp.fstab
+
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/init.recovery.shinano.rc:root/init.recovery.shinano.rc \
     $(SONY_ROOT)/init.shinano.rc:root/init.shinano.rc \
