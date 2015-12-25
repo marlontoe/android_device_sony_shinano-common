@@ -118,10 +118,10 @@ BUILD_KERNEL := true
 -include vendor/sony/kernel/KernelConfig.mk
 
 # SELinux
-include device/qcom/aosp-sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/sony/shinano-common/sepolicy
+    device/sony/shinano/sepolicy
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
