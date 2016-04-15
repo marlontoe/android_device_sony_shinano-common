@@ -105,6 +105,13 @@ on early-boot
     exec /system/bin/sh /system/etc/pre_hw_config.sh
 
 on boot
+    # bring CPUs online
+    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/module/msm_thermal/core_control/enabled 1
+
     write /sys/module/qpnp_power_on/parameters/forcecrash_on 1
 
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
@@ -275,6 +282,7 @@ on post-fs
 on post-fs-data
     # Used by taimport for MAC addresses
     mkdir /data/etc 0755 root shell
+    start taimport
 
     mkdir /data/media 0770 media_rw media_rw
 
@@ -383,9 +391,10 @@ service tad_static /system/bin/tad_static /dev/block/mmcblk0 1,16
     class core
 
 service taimport /system/bin/taimport
-    class late_start
+    class main
     user root
     group system
+    disabled
     oneshot
 
 service netmgrd /system/bin/netmgrd
@@ -563,6 +572,13 @@ service time_daemon /system/bin/time_daemon
     class late_start
     user root
     group root radio qcom_diag
+
+# create filesystem if necessary
+service setup_fs /system/bin/setup_fs /dev/block/platform/msm_sdcc.1/by-name/userdata
+    class core
+    user root
+    group root
+    oneshot
 
 service charger /sbin/healthd -c
     class charger
