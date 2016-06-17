@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,6 +11,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-include $(all-subdir-makefiles)
+LOCAL_PATH:= $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := procmem.c
+
+LOCAL_C_INCLUDES := $(call include-path-for, libpagemap)
+
+LOCAL_SHARED_LIBRARIES := libpagemap
+
+LOCAL_MODULE := procmem
+
+LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
+
+LOCAL_MODULE_TAGS := debug
+
+include $(BUILD_EXECUTABLE)

@@ -1,5 +1,4 @@
-# Copyright (C) 2012 The Android Open Source Project
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2007 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -45,19 +44,8 @@
 #$(call add-clean-step, find $(OUT_DIR) -type f -name "IGTalkSession*" -print0 | xargs -0 rm -f)
 #$(call add-clean-step, rm -rf $(PRODUCT_OUT)/data/*)
 
+$(call add-clean-step, rm -f $(PRODUCT_OUT)/system.img $(PRODUCT_OUT)/userdata.img)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/EXECUTABLES/taskstats_intermediates)
 # ************************************************
 # NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
 # ************************************************
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/vold.fstab)
-$(call add-clean-step, find $(OUT_DIR) -name "lights.msm8960*" -print0 | xargs -0 rm -f)
-$(call add-clean-step, find $(OUT_DIR) -name "*.default.*so" -print0 | xargs -0 rm -f)
-$(call add-clean-step, find $(PRODUCT_OUT) -name "*.prop" -print0 | xargs -0 rm -f)
-$(call add-clean-step, find $(OUT_DIR) -name "wpa_supplicant*" -print0 | xargs -0 rm -f)
-$(call add-clean-step, find $(PRODUCT_OUT) -name "*.img" -print0 | xargs -0 rm -f)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/SHARED_LIBRARIES/libhardware_legacy_intermediates/)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/modules/wlan.ko)
-$(call add-clean-step, rm -f $(PRODUCT_OUT)/root/default.prop)
-$(call add-clean-step, rm -f $(PRODUCT_OUT)/recovery/root/default.prop)
-$(call add-clean-step, rm -f $(PRODUCT_OUT)/system/build.prop)
-
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/combinedroot/init)

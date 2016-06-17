@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2008 The Android Open Source Project
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,14 @@
 # limitations under the License.
 #
 
-include $(all-subdir-makefiles)
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := tests
+LOCAL_MODULE := socketTag
+LOCAL_SRC_FILES := socketTag.cpp
+LOCAL_SHARED_LIBRARIES += libcutils libutils liblog
+LOCAL_STATIC_LIBRARIES += libtestUtil
+LOCAL_C_INCLUDES += system/extras/tests/include
+
+include $(BUILD_NATIVE_TEST)
